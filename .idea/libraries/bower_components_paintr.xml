@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="bower_components paintr" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/paintr/bower_components" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/paintr/bower_components" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

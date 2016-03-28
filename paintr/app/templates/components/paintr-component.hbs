@@ -1,0 +1,52 @@
+<div class="paintr-surface">
+    <p>Draw here :)</p>
+    <div id="{{paintrId}}" class="paintr-element"></div>
+
+    <div class="paintr-tools {{paintrToolsClosedClass}}">
+        <div class="paintr-tools-header">
+            <button {{action 'toggleTools'}} class="paintr-tools-toggle">
+                <span class="fa fa-gear icon"></span>
+            </button>
+        </div>
+        <div class="paintr-tools-container">
+            <ul class="list-unstyled">
+                <ul class="list-unstyled list-inline stroke-controls">
+                    <li>
+                        <span class="label">User:</span><br/>
+                        {{input type="text" class="paintr-tools-user" value=paintrUser}}
+                    </li>
+                    <li>
+                        <span class="label">Title:</span><br/>
+                        {{input type="text" class="paintr-tools-title" value=paintrTitle}}
+                    </li>
+                    <li>
+                        <span class="label">Stroke:</span><br>
+                        {{input type="color" class="paintr-tools-strokecolor" value=paintrStrokeColor}}
+                    </li>
+                    <li>
+                        {{#x-select value=paintrStrokeWidth class="paintr-tools-strokewidth"}}
+                            {{#x-option value=1}}x-thin{{/x-option}}
+                            {{#x-option value=3}}thin{{/x-option}}
+                            {{#x-option value=5}}normal{{/x-option}}
+                            {{#x-option value=10}}thick{{/x-option}}
+                            {{#x-option value=15}}x-thick{{/x-option}}
+                        {{/x-select}}
+                    </li>
+                </ul>
+                <li class="paintr-tools-divider"></li>
+                <li>
+                    <span class="label">Background:</span><br>
+                    {{input type="color" class="paintr-tools-bgcolor" value=paintrBackgroundColor}}
+                </li>
+                <li class="paintr-tools-divider"></li>
+                <ul class="list-unstyled list-inline">
+                    <li><button {{action 'undo'}} class="paintr-tools-undo btn-xs" disabled={{paintrUndoDisabled}}>undo</button></li>
+                    <li><button {{action 'redo'}}  class="paintr-tools-redo btn-xs" disabled={{paintrRedoDisabled}}>redo</button></li>
+                </ul>
+                <li class="paintr-tools-divider"></li>
+                <li><button {{action 'save'}} class="paintr-tools-export btn-xs">save</button></li>
+            </ul>
+        </div>
+
+    </div>
+</div>

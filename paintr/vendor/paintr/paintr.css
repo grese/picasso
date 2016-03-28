@@ -1,0 +1,63 @@
+/* Demo Styles */
+body {
+    font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
+}
+
+.paintr {}
+
+/* Paintr Surface Styles */
+.paintr-surface {
+    display: inline-block;
+}
+.paintr-surface canvas {
+    border: 1px solid #d9d9d9;
+    background: #fff;
+}
+
+/* Paintr Tools Styles */
+.paintr-tools {
+    display: inline-block;
+    vertical-align: top;
+    overflow-y: scroll;
+    max-width: 175px;
+    width: 175px;
+    transition: width 250ms;
+}
+.paintr-tools.closed {
+    width: 25px;
+}
+.paintr-tools-header {
+    background-color: #efefef;
+    text-align: right;
+}
+.paintr-tools-container {
+    padding-left: 15px;
+    min-width: 175px;
+}
+.paintr-tools-toggle {
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    outline: none;
+    padding: 2px 4px;
+}
+.paintr-tools .label {
+    font-weight: 200;
+    font-size: 13px;
+    color: #444;
+    padding: 0 0 5px 0;
+}
+.paintr-tools ul {
+    list-style-type: none;
+}
+.paintr-tools ul li.paintr-tools-divider {
+    border-bottom: 1px solid #ccc;
+    margin: 12px 0 10px;
+}
+.paintr-tools .stroke-controls li:first-of-type {
+    padding-right: 0;
+}
+.paintr-tools .stroke-controls li:last-of-type {
+    padding-right: 0;
+}
+

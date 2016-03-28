@@ -1,0 +1,25 @@
+
+.image-grid-container {
+    margin-left: -5px;
+
+    .image-grid-item {
+        margin: 5px;
+        border: 1px solid #efefef;
+        height: 100%;
+    }
+    .image-grid-item-info{
+        padding: 8px;
+
+        & > span {
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            &.image-grid-item-user {
+                color: #888;
+                font-size: 0.8em;
+            }
+        }
+    }
+}

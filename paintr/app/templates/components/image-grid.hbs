@@ -1,0 +1,16 @@
+<div class="image-grid-container">
+    <div class="row">
+        {{#each model as |image index|}}
+            <div class="col-md-2 col-sm-3 col-xs-4">
+                <div class="image-grid-item">
+                    <img clas="image-grid-item-thumb" src="{{image.getSrc}}" width="100%" />
+
+                    <div class="image-grid-item-info">
+                        <span class="image-grid-item-title">{{image.title}}</span>
+                        <span class="image-grid-item-user">By {{image.user}}</span>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
