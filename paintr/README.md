@@ -1,8 +1,8 @@
 # Paintr
+This is the front-end for picasso... Built on EmberCLI.
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
-
+=====
+# EmberCLI Specifics:
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
