@@ -40,8 +40,16 @@
                 </li>
                 <li class="paintr-tools-divider"></li>
                 <ul class="list-unstyled list-inline">
-                    <li><button {{action 'undo'}} class="paintr-tools-undo btn-xs" disabled={{paintrUndoDisabled}}>undo</button></li>
-                    <li><button {{action 'redo'}}  class="paintr-tools-redo btn-xs" disabled={{paintrRedoDisabled}}>redo</button></li>
+                    <li>
+                        <button {{action 'undo'}} class="paintr-tools-undo btn-xs" disabled={{paintrUndoDisabled}}>
+                            <span class="fa fa-undo"></span>
+                        </button>
+                    </li>
+                    <li>
+                        <button {{action 'redo'}}  class="paintr-tools-redo btn-xs" disabled={{paintrRedoDisabled}}>
+                            <span class="fa fa-undo fa-flip-horizontal"></span>
+                        </button>
+                    </li>
                 </ul>
                 <li class="paintr-tools-divider"></li>
                 <li><button {{action 'save'}} class="paintr-tools-export btn-xs">save</button></li>

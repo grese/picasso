@@ -70,15 +70,11 @@ export default Em.Component.extend({
             this.sendAction('createImage', {
                 user: this.get('paintrUser'),
                 title: this.get('paintrTitle'),
-                data: this.get('_paintr').exportDataURI()
+                data_uri: this.get('_paintr').exportDataURI()
             });
         },
         toggleTools: function() {
-            if (this.get('$tools').hasClass('closed')) {
-                this.get('$tools').removeClass('closed');
-            } else {
-                this.get('$tools').addClass('closed');
-            }
+            this.get('$tools').toggleClass('closed');
         }
     }
 });

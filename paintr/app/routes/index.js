@@ -11,11 +11,12 @@ export default Ember.Route.extend({
             var image = this.store.createRecord('image', {
                 user: params.user,
                 title: params.title,
-                data: params.data
+                data_uri: params.data_uri
             });
-            image.save().then(function(resp) {
-                Ember.Logger.debug('THE IMAGE RESPONSE: ', resp);
-            });
+            Ember.Logger.debug('THE IMAGE RESPONSE: ', image);
+            //image.save().then(function(resp) {
+            //    Ember.Logger.debug('THE IMAGE RESPONSE: ', resp);
+            //});
         }
     }
 });

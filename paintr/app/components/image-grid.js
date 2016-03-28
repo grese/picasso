@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Em from 'ember';
 
-export default Ember.Component.extend({
+export default Em.Component.extend({
 });

@@ -3,11 +3,13 @@ body {
     font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
 }
 
-.paintr {}
+.paintr {
+    display: inline-block;
+}
 
 /* Paintr Surface Styles */
 .paintr-surface {
-    display: inline-block;
+
 }
 .paintr-surface canvas {
     border: 1px solid #d9d9d9;
@@ -19,9 +21,10 @@ body {
     display: inline-block;
     vertical-align: top;
     overflow-y: scroll;
-    max-width: 175px;
-    width: 175px;
+    max-width: 180px;
+    width: 180px;
     transition: width 250ms;
+    margin-left: -3px;
 }
 .paintr-tools.closed {
     width: 25px;
@@ -31,15 +34,14 @@ body {
     text-align: right;
 }
 .paintr-tools-container {
-    padding-left: 15px;
-    min-width: 175px;
+    padding-left: 25px;
+    min-width: 180px;
 }
 .paintr-tools-toggle {
     border: none;
     background: transparent;
     font-size: 16px;
     outline: none;
-    padding: 2px 4px;
 }
 .paintr-tools .label {
     font-weight: 200;

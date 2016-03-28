@@ -4,7 +4,8 @@ import DS from 'ember-data';
 var ImageModel = DS.Model.extend({
     user: DS.attr('string'),
     title: DS.attr('string'),
-    filename: DS.attr('string')
+    filename: DS.attr('string'),
+    data_uri: null,
 });
 
 ImageModel.reopen({

@@ -42,27 +42,27 @@ class ImagesController < ApplicationController
   end
 
 
-  # PATCH/PUT /images/:id
-  def update
-    respond_to do |format|
-      if @image.update(image_params)
-        format.html { redirect_to @image, notice: 'Image was successfully updated.' }
-        format.json { render :show, status: :ok, location: @image }
-      else
-        format.html { render :edit }
-        format.json { render json: @image.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /images/:id
-  def destroy
-    @image.destroy
-    respond_to do |format|
-      format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+  # # PATCH/PUT /images/:id
+  # def update
+  #   respond_to do |format|
+  #     if @image.update(image_params)
+  #       format.html { redirect_to @image, notice: 'Image was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @image }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @image.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+  #
+  # # DELETE /images/:id
+  # def destroy
+  #   @image.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
