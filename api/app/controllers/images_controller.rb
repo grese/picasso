@@ -26,7 +26,7 @@ class ImagesController < ApplicationController
   # end
   def create
     @image = Image.new(image_params)
-    filename = @image.save_data(params[:data])
+    filename = @image.save_data(params[:data_uri])
 
     respond_to do |format|
       if filename
@@ -72,6 +72,6 @@ class ImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
-      params.require(:image).permit(:user, :title, :filename)
+      params.require(:image).permit(:user_id, :title, :filename)
     end
 end

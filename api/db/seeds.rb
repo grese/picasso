@@ -1,15 +1,16 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Image.create([
-        {user: 'frank', title: 'helleau whirrled', filename: 'sample-1.png'},
-        {user: 'schroeder', title: 'givadogabone', filename: 'sample-2.png'},
-        {user: 'katie', title: 'look at me', filename: 'sample-3.png'},
-        {user: 'the dude', title: 'Oh, the usual. I bowl. Drive around. The occasional acid flashback.', filename: 'sample-4.png'}
-])
+# Create mock records for development:
+
+user1 = User.create({email: 'johngrese@me.com', username: 'thedude', encrypted_password: 'ABCDEF', salt: '123'})
+user1.images.create({title: 'Oh, the usual. I bowl. Drive around. The occasional acid flashback.', filename: 'sample-4.png'})
+
+user2 = User.create({email: 'frankgrese@yahoo.com', username: 'frank', encrypted_password: 'ABCDEF', salt: '123'})
+user2.images.create({title: 'helleau whirrled', filename: 'sample-1.png'})
+
+user3 = User.create({email: 'katiegrese@yahoo.com', username: 'katie', encrypted_password: 'ABCDEF', salt: '123'})
+user3.images.create({title: 'look at me', filename: 'sample-3.png'})
+
+user4 = User.create({email: 'schroeder@grese.me', username: 'schroeder', encrypted_password: 'ABCDEF', salt: '123'})
+user4.images.create({title: 'givadogabone', filename: 'sample-2.png'})
+
 

@@ -1,4 +1,5 @@
 class Image < ActiveRecord::Base
+  belongs_to :user
 
   @@upload_dir = 'public/uploads'
 
