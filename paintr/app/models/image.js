@@ -2,7 +2,7 @@ import Em from 'ember';
 import DS from 'ember-data';
 
 var ImageModel = DS.Model.extend({
-    user: DS.attr('string'),
+    user: DS.belongsTo('user'),
     title: DS.attr('string'),
     filename: DS.attr('string'),
     data_uri: null,

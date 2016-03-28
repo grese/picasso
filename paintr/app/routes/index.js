@@ -4,6 +4,15 @@ export default Ember.Route.extend({
     model: function() {
         return this.store.findAll('image');
     },
+
+    afterModel: (model) => {
+        model.forEach((image) => {
+            Ember.Logger.debug('= = = = = = = = = = = = = = = = = = = = = = = = =');
+            Ember.Logger.debug('IMAGE: ', image);
+            Ember.Logger.debug('USER: ', image.get('user'));
+        });
+    },
+
     actions: {
         createImage: function(params) {
             params = params || {};
