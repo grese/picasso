@@ -1,6 +1,5 @@
 class ImagesController < ApplicationController
-  skip_before_action :verify_authenticity_token
-  before_action :set_image, only: [:show, :edit, :update, :destroy]
+  before_action :set_image, only: [:show, :update, :destroy]
 
   # GET /api/images
   def index
@@ -20,13 +19,9 @@ class ImagesController < ApplicationController
   end
 
   # POST /api/images
-
-  # respond_to do |format|
-  #   format.json { render json: @image, meta: { created_at: @image[:created_at], updated_at: @image[:updated_at] } }
-  # end
   def create
     @image = Image.new(image_params)
-    filename = @image.save_data(params[:data_uri])
+    filename = @image.create_image(data_uri_param)
 
     respond_to do |format|
       if filename
@@ -41,33 +36,35 @@ class ImagesController < ApplicationController
     end
   end
 
+  # DELETE /api/images/:id
+  def destroy
+    @image.destroy
+    respond_to do |format|
+      format.json { head :no_content }
+    end
+  end
 
-  # # PATCH/PUT /images/:id
-  # def update
-  #   respond_to do |format|
-  #     if @image.update(image_params)
-  #       format.html { redirect_to @image, notice: 'Image was successfully updated.' }
-  #       format.json { render :show, status: :ok, location: @image }
-  #     else
-  #       format.html { render :edit }
-  #       format.json { render json: @image.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-  #
-  # # DELETE /images/:id
-  # def destroy
-  #   @image.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
+  # PATCH/PUT /api/images/:id
+  def update
+    respond_to do |format|
+      @image.update_image(data_uri_param)
+
+      if @image.update(image_params)
+        format.json { render json: @image, meta: {created_at: @image[:created_at], updated_at: @image[:updated_at] }}
+      else
+        format.json { render json: @image.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_image
       @image = Image.find(params[:id])
+    end
+
+    def data_uri_param
+      params.require(:data_uri)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
