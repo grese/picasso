@@ -1,13 +1,23 @@
-import Ember from 'ember';
+import Em from 'ember';
 
-export default Ember.Route.extend({
-    beforeModel: function() {
-        var loggedInUser = this.controllerFor('application').get('user');
-        // If we already have a user object, the user is still logged in...
-        // so, redirect them to their user page.
-        if (!Ember.isNone(loggedInUser)) {
-            //this.transitionTo('user.index', loggedInUser.get('id'));
+export default Em.Route.extend({
+    login: Em.inject.service(),
+    doLogin: function(loginname, password) {
+        this.get('login').login(loginname, password).then((userId) => {
+            this.transitionTo('user.index', userId);
+        }).catch(() => {
+            this.get('controller.notify').alert('Your username/email or password was incorrect.');
+        });
+    },
+    actions: {
+        login() {
+            var loginname = this.get('controller.loginName'),
+                password = this.get('controller.password');
+            if (!loginname || !password) {
+                this.get('controller.notify').alert('Username & password are required.');
+            } else {
+                this.doLogin(loginname, password);
+            }
         }
-        this.transitionTo('user.index');
     }
 });

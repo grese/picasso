@@ -1,3 +1,7 @@
-import Ember from 'ember';
+import Em from 'ember';
 
-export default Ember.Controller.extend({});
+export default Em.Controller.extend({
+    notify: Em.inject.service(),
+    loginName: '',
+    password: ''
+});
