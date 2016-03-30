@@ -19,8 +19,10 @@ export default Em.Route.extend({
 
     _doSave: function(record) {
         if (record) {
-            record.save().then(function() {
-                Em.Logger.debug("THE RECORD HATH BEEN SAVED!");
+            record.save().then(() => {
+                this.get('controller.notify').success('Your changes have been saved.');
+            }).catch(() => {
+                this.get('controller.notify').alert('An error occurred while saving your changes!');
             });
         }
     },
