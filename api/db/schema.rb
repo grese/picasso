@@ -13,6 +13,14 @@
 
 ActiveRecord::Schema.define(version: 20160328195328) do
 
+  create_table "images", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "title"
+    t.text     "filename"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.text     "email"
     t.text     "username"
@@ -20,14 +28,6 @@ ActiveRecord::Schema.define(version: 20160328195328) do
     t.string   "salt"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-  end
-
-  create_table "images", force: :cascade do |t|
-    t.integer  "user_id"
-    t.text     "title"
-    t.text     "filename"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end
