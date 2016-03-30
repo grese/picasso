@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+  skip_before_action :authenticate
+
   # POST /api/login
   def create
     login()
@@ -16,8 +18,7 @@ class SessionsController < ApplicationController
 
   # GET/DELETE /api/logout
   def destroy
-    session[:user_id] = nil
-    session[:api_key] = nil
+    reset_session
     respond_to do |format|
       format.json { render json: { status: :ok } }
     end

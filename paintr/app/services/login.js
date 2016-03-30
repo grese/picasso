@@ -81,17 +81,15 @@ export default AjaxService.extend(ConstantsMixin, {
 
     _readLocalStorage: function() {
         this.set('apiKey', localStorage.getItem(this.get('API_KEY_KEY')) || null);
-        this.set('userId', localStorage.getItem(this.get('API_KEY_KEY')) || null);
+        this.set('userId', localStorage.getItem(this.get('USER_ID_KEY')) || null);
     },
 
-    headers: Em.computed('authToken', {
+    headers: Em.computed('apiKey', 'userId', {
         get() {
-            let headers = {};
-            const authToken = this.get('authToken');
-            if (authToken) {
-                headers['auth-token'] = authToken;
-            }
-            return headers;
+            return {
+                AUTHORIZATION: 'Token token=' + this.get('apiKey'),
+                USER_ID: this.get('userId')
+            };
         }
     })
 });
