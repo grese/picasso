@@ -2,10 +2,10 @@ class SessionsController < ApplicationController
 
   # POST /api/login
   def create
-    creds = login()
-    if creds[:api_key] && creds[:user_id]
+    login()
+    if session[:api_key] && session[:user_id]
       respond_to do |format|
-        format.json { render json: { apiKey: creds[:api_key], userId: creds[:user_id] } }
+        format.json { render json: { apiKey: session[:api_key], userId: session[:user_id] } }
       end
     else
        respond_to do |format|
@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
   # GET/DELETE /api/logout
   def destroy
     session[:user_id] = nil
+    session[:api_key] = nil
     respond_to do |format|
       format.json { render json: { status: :ok } }
     end
@@ -24,9 +25,6 @@ class SessionsController < ApplicationController
 
   private
     def login
-      api_key = nil
-      user_id = nil
-
       if params[:email]
         user = User.find_by_email(params[:email])
       else
@@ -34,11 +32,8 @@ class SessionsController < ApplicationController
       end
 
       if user && user.authenticate(params[:password])
-        api_key = SecureRandom.hex
-        user_id = user.id
-        session[:user_id] = api_key
+        session[:user_id] = user.id
+        session[:api_key] = SecureRandom.hex
       end
-
-      {:user_id => user_id, :api_key => api_key}
     end
 end
