@@ -8,5 +8,11 @@ export default Em.Route.extend({
         }).catch(function() {
             Em.Logger.debug("LOGIN FAILED");
         });
+    },
+
+    actions: {
+        logout() {
+            this.get('login').logout();
+        }
     }
 });

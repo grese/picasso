@@ -36,6 +36,17 @@ export default AjaxService.extend(ConstantsMixin, {
         });
     },
 
+    logout() {
+        this.setProperties({
+            user: null,
+            apiKey: false,
+            loggedIn: false
+        });
+        return this.del('/api/logout').catch((err) => {
+            Em.Logger.debug('[LOGIN SERVICE] => ', err);
+        });
+    },
+
     getUser(userId) {
         this.get('store').findRecord('user', userId).then((user) => {
             this.set('user', user);

@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     respond_to do |format|
-      format.json { head :ok }
+      format.json { render json: { status: :ok } }
     end
   end
 

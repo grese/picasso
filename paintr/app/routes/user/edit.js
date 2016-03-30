@@ -27,7 +27,7 @@ export default Em.Route.extend({
 
     actions: {
         reset: function(record) {
-            record.rollback();
+            record.rollbackAttributes();
         },
         create: function(record) {
             this._doSave(record);
