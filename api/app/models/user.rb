@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   validates :username, :presence => true, :uniqueness => true, :length => { :in => 4..20 }
   validates :email, :presence => true, :uniqueness => true, :format => @@EMAIL_REGEX
   validates :password, :confirmation => true
-  validates_length_of :password, :in => 6..20, :on => :save
+  validates_length_of :password, :in => 6..20, :on => :save, :on => :update
 
   def encrypt_password
     if password.present?

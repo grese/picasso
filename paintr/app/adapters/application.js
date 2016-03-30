@@ -1,5 +1,5 @@
-import ActiveModelAdapter from 'active-model-adapter';
+import DS from 'ember-data';
 
-export default ActiveModelAdapter.extend({
+export default DS.JSONAPIAdapter.extend({
     namespace: 'api'
 });

@@ -16,16 +16,14 @@
             {{input type="text" id="username-field" class="form-control" value=model.username}}
         </div>
 
-        {{#if isNewUser}}
-            <div class="form-group">
-                <label for="password-field">Password:</label>
-                {{input type="password" id="password-field" class="form-control" value=model.password}}
-            </div>
-            <div class="form-group">
-                <label for="passwordconf-field">Confirm Password:</label>
-                {{input type="password" id="passwordconf-field" class="form-control" value=passwordConf}}
-            </div>
-        {{/if}}
+        <div class="form-group">
+            <label for="password-field">Password:</label>
+            {{input type="password" id="password-field" class="form-control" value=model.password}}
+        </div>
+        <div class="form-group">
+            <label for="passwordconf-field">Confirm Password:</label>
+            {{input type="password" id="passwordconf-field" class="form-control" value=passwordConf}}
+        </div>
 
         <button {{action 'reset' model}} type="button" class="btn btn-default">Reset</button>
         {{#if isNewUser}}
