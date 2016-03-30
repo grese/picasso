@@ -1,4 +1,5 @@
-import Ember from 'ember';
+import Em from 'ember';
 
-export default Ember.Controller.extend({
+export default Em.Controller.extend({
+    login: Em.inject.service()
 });

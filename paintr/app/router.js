@@ -9,12 +9,17 @@ Router.map(function () {
 
     this.route('index', {path: '/'});
     this.route('login');
-    this.route('user.edit', {path: 'signup'});
-    this.route('user.edit', {path: 'user/:user_id/edit'});
-    this.route('user.index', {path: 'user/:user_id'});
-    this.route('user.images.index', {path: 'user/:user_id/images'});
-    this.route('user.images.view', {path: 'user/:user_id/images/:image_id'});
-    this.route('user.images.edit', {path: 'user/:user_id/images/:image_id/edit'});
+
+    this.route('image', {path: 'images'}, function() {
+        this.route('all', {path: '/'});
+        this.route('view', {path: '/:image_id'});
+    });
+
+    this.route('user', function() {
+      this.route('index', {path: '/:user_id'});
+      this.route('edit', {path: '/:user_id/edit'});
+    });
+    this.route('user.new', {path: '/signup'});
 });
 
 export default Router;

@@ -12,10 +12,9 @@ export default AjaxService.extend(ConstantsMixin, {
         this._super(...arguments);
     },
 
-    login: function(loginname, password) {
-        var credentials = {
-                password: password
-            };
+    login(loginname, password) {
+        var credentials = { password: password };
+
         if (this.get('EMAIL_REGEX').test(loginname)) {
             credentials.email = loginname;
         } else {
@@ -37,11 +36,9 @@ export default AjaxService.extend(ConstantsMixin, {
         });
     },
 
-    getUser: function(userId) {
-        var self = this;
-
-        this.get('store').findRecord('user', userId).then(function(user) {
-            self.set('user', user);
+    getUser(userId) {
+        this.get('store').findRecord('user', userId).then((user) => {
+            this.set('user', user);
         });
     },
 

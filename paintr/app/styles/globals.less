@@ -1,3 +1,5 @@
+@navbar-height: 60px;
+
 html, body {
     height: 100%;
     width: 100%;
@@ -5,5 +7,8 @@ html, body {
     padding: 0;
 }
 .paintr-app {
-    padding-top: 60px; // bootstrap fixed header
+    padding-top: @navbar-height; // bootstrap fixed header
+}
+.ember-notify-cn {
+    top: @navbar-height; // move ember-notify to top...
 }
