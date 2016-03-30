@@ -5,7 +5,7 @@ var ImageModel = DS.Model.extend({
     user: DS.belongsTo('user'),
     title: DS.attr('string'),
     filename: DS.attr('string'),
-    data_uri: null,
+    data_uri: DS.attr('string')
 });
 
 ImageModel.reopen({

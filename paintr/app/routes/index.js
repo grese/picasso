@@ -1,6 +1,7 @@
-import Ember from 'ember';
+import Em from 'ember';
 
-export default Ember.Route.extend({
+export default Em.Route.extend({
+    login: Em.inject.service(),
     model: function() {
         return this.store.findAll('image');
     },
@@ -10,14 +11,13 @@ export default Ember.Route.extend({
             params = params || {};
 
             var image = this.store.createRecord('image', {
-                user: params.user,
+                user: this.get('login.user'),
                 title: params.title,
                 data_uri: params.data_uri
             });
-            Ember.Logger.debug('THE IMAGE RESPONSE: ', image);
-            //image.save().then(function(resp) {
-            //    Ember.Logger.debug('THE IMAGE RESPONSE: ', resp);
-            //});
+            image.save().then(function(resp) {
+                Em.Logger.debug('THE IMAGE RESPONSE: ', resp);
+            });
         }
     }
 });

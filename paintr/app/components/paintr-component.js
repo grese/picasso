@@ -68,7 +68,6 @@ export default Em.Component.extend({
         },
         save: function() {
             this.sendAction('createImage', {
-                user: this.get('paintrUser'),
                 title: this.get('paintrTitle'),
                 data_uri: this.get('_paintr').exportDataURI()
             });

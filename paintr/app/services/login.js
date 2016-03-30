@@ -7,7 +7,6 @@ export default AjaxService.extend(ConstantsMixin, {
     apiKey: null,
     loggedIn: false,
     store: Em.inject.service(),
-
     init() {
         this._super(...arguments);
     },
