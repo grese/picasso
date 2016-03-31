@@ -25,13 +25,13 @@ export default AjaxService.extend(ConstantsMixin, {
         }
     }),
 
-    login(loginname, password) {
+    login(loginName, password) {
         var credentials = { password: password };
 
-        if (this.get('EMAIL_REGEX').test(loginname)) {
-            credentials.email = loginname;
+        if (this.get('EMAIL_REGEX').test(loginName)) {
+            credentials.email = loginName;
         } else {
-            credentials.username = loginname;
+            credentials.username = loginName;
         }
 
         return new Em.RSVP.Promise((resolve, reject) => {

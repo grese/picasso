@@ -3,20 +3,22 @@
     <div class="row">
         <div class="col-sm-6">
             <h2>Sign In</h2>
-            <form>
+            <form {{action 'doValidateAndLogin' on='submit'}} class="login-form">
                 <div class="form-group">
                     <label for="loginname-field">Username/Email:</label>
-                    {{input type="text" id="loginname-field" class="form-control" value=loginName}}
+                    <span class="error">{{model.loginNameValidatorResult.error}}</span>
+                    {{input type="text" id="loginname-field" class="form-control" value=model.loginName}}
                 </div>
                 <div class="form-group">
                     <label for="password-login-field">Password:</label>
-                    {{input type="password" id="password-login-field" class="form-control" value=password}}
+                    <span class="error">{{model.passwordValidatorResult.error}}</span>
+                    {{input type="password" id="password-login-field" class="form-control" value=model.password}}
                 </div>
-                <button {{action 'login'}} type="button" class="btn btn-primary">Go</button>
+                <button type="submit" class="btn btn-primary">Go</button>
             </form>
         </div>
 
-        <div class="col-sm-6 register-container">
+        <div class="col-sm-6 register">
             <div class="well well-sm">
                 <h4>No Account?</h4>
                 <p>If you don't have an account yet, click 'Register' below to get started.  It's free!</p>
@@ -30,4 +32,3 @@
 
     </div> <!-- end .row -->
 </div> <!-- end .login-container -->
-
