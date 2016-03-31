@@ -6,7 +6,9 @@ export default AjaxService.extend(ConstantsMixin, {
     user: null,
     userId: null,
     apiKey: null,
+    apiToken: null,
     store: Em.inject.service(),
+
     init() {
         this._super(...arguments);
         this._readLocalStorage();
@@ -85,11 +87,13 @@ export default AjaxService.extend(ConstantsMixin, {
     _readLocalStorage: function() {
         this.set('apiKey', localStorage.getItem(this.get('API_KEY_KEY')) || null);
         this.set('userId', localStorage.getItem(this.get('USER_ID_KEY')) || null);
+        this.set('apiToken', Em.get(document.cookie.match(/X-CSRF\-Token\=([^;]*)/), '1'));
     },
 
     headers: Em.computed('apiKey', 'userId', {
         get() {
             return {
+                X_CSRF_TOKEN: this.get('apiToken'),
                 AUTHORIZATION: 'Token token=' + this.get('apiKey'),
                 USER_ID: this.get('userId')
             };

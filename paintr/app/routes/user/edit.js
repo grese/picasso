@@ -24,6 +24,8 @@ export default AuthenticatedRoute.extend({
         }
 
         if (this.get('currentModel.validatorResultIsValid')) {
+            this.set('currentModel.confirmed', true);
+
             this.get('currentModel').save().then(() => {
                 this.get('notify').success('Your changes have been saved.');
             }).catch(() => {
