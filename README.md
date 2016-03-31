@@ -10,4 +10,8 @@ A simple JS/Canvas drawing app built on ember-cli with a Rails backend,
 * `bundle exec rake ember:install` #run the ember app's installer
 * `bundle exec rake db:setup` #setup the sqlite3 development DB
 
+## Run
+* `cd picasso/api` #enter rails app's root directory
+* `rails s` #start the server
+
 Screenshots coming soon :)
