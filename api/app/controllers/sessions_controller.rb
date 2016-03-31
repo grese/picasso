@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  # GET/DELETE /api/logout
+  # DELETE /api/logout
   def destroy
     reset_session
     respond_to do |format|
