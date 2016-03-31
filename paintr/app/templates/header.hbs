@@ -22,7 +22,9 @@
             <ul class="nav navbar-nav navbar-right navbar-user-login">
                 {{#if login.loggedIn}}
                     <li>
-                        {{#link-to 'user.edit' login.user class='navbar-link'}}<span class="fa fa-user"></span>{{/link-to}}
+                        {{#link-to 'user.edit' login.userId class='navbar-link'}}
+                            <span class="fa fa-user"></span>
+                        {{/link-to}}
                     </li>
                     <li>
                         <a {{action 'logout'}} href="#" class='navbar-link'>
@@ -31,7 +33,9 @@
                     </li>
                 {{else}}
                     <li>
-                        {{#link-to 'login' class='navbar-link'}}<span class='fa fa-sign-in'></span> Sign in{{/link-to}}
+                        {{#link-to 'login' class='navbar-link'}}
+                            <span class='fa fa-sign-in'></span> Sign in
+                        {{/link-to}}
                     </li>
                 {{/if}}
             </ul>
