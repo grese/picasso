@@ -1,5 +1,10 @@
 
-<h3>{{model.title}}</h3>
-<p>By: {{#link-to 'user.index' model.user.id}}{{model.user.username}}{{/link-to}}</p>
+<div class="image-view">
+    <div class="image-info">
+        <h2>{{model.title}}</h2>
+        <h4>By: {{#link-to 'user.index' model.user.id}}{{model.user.username}}{{/link-to}}</h4>
+    </div>
 
-{{image src=model.getSrc width=500 height=300 class="image-full-size"}}
+    {{image src=model.getSrc width=500 height=300 class="image-full-size"}}
+</div>
+
