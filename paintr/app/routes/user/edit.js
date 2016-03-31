@@ -17,7 +17,12 @@ export default Em.Route.extend({
     },
 
     save() {
-        if (this.get('currentModel.hasDirtyAttributes')) {
+        if (!this.get('currentModel.hasDirtyAttributes')) {
+            this.get('notify').info('No changes...');
+            return;
+        }
+
+        if (this.get('currentModel.validatorResultIsValid')) {
             this.get('currentModel').save().then(() => {
                 this.get('notify').success('Your changes have been saved.');
             }).catch(() => {

@@ -9,22 +9,26 @@
     <form {{action 'doSave' on="submit"}} autocomplete="off" class="user-form">
         <div class="form-group">
             <label for="email-field">Email:</label>
+            <span class="error">{{model.emailValidatorResult.error}}</span>
             {{input type="email" id="email-field" class="form-control" value=model.email}}
         </div>
 
         <div class="form-group">
             <label for="username-field">Username:</label>
+            <span class="error">{{model.usernameValidatorResult.error}}</span>
             {{input type="text" id="username-field" class="form-control" value=model.username}}
         </div>
 
         <div class="form-group">
             <label for="password-field">Password:</label>
             {{#unless model.isNew}}<i>(leave empty for no change)</i>{{/unless}}
+            <span class="error">{{model.passwordValidatorResult.error}}</span>
             {{input type="password" id="password-field" class="form-control" value=model.password}}
         </div>
         {{#if model.passwordConfRequired}}
             <div class="form-group">
                 <label for="passwordconf-field">Confirm Password:</label>
+                <span class="error">{{model.passwordConfirmationValidatorResult.error}}</span>
                 {{input type="password" id="passwordconf-field" class="form-control" value=model.passwordConfirmation}}
             </div>
         {{/if}}
