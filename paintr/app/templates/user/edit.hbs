@@ -6,11 +6,12 @@
         <h2>Edit Account</h2>
     {{/if}}
 
-    <form>
+    <form {{action 'doSave' on="submit"}} autocomplete="off" class="user-form">
         <div class="form-group">
             <label for="email-field">Email:</label>
             {{input type="email" id="email-field" class="form-control" value=model.email}}
         </div>
+
         <div class="form-group">
             <label for="username-field">Username:</label>
             {{input type="text" id="username-field" class="form-control" value=model.username}}
@@ -18,18 +19,21 @@
 
         <div class="form-group">
             <label for="password-field">Password:</label>
+            {{#unless model.isNew}}<i>(leave empty for no change)</i>{{/unless}}
             {{input type="password" id="password-field" class="form-control" value=model.password}}
         </div>
-        <div class="form-group">
-            <label for="passwordconf-field">Confirm Password:</label>
-            {{input type="password" id="passwordconf-field" class="form-control" value=model.passwordConfirmation}}
-        </div>
+        {{#if model.passwordConfRequired}}
+            <div class="form-group">
+                <label for="passwordconf-field">Confirm Password:</label>
+                {{input type="password" id="passwordconf-field" class="form-control" value=model.passwordConfirmation}}
+            </div>
+        {{/if}}
 
-        <button {{action 'reset' model}} type="button" class="btn btn-default pull-left">Reset</button>
+        <button {{action 'doReset' model}} type="button" class="btn btn-default pull-left">Reset</button>
         {{#if model.isNew}}
-            <button {{action 'create' model}} type="button" class="btn btn-primary pull-right">Create Account</button>
+            <button type="submit" type="button" class="btn btn-primary pull-right">Create Account</button>
         {{else}}
-            <button {{action 'save' model}} type="button" class="btn btn-primary pull-right">Save Changes</button>
+            <button type="submit" type="button" class="btn btn-primary pull-right">Save Changes</button>
         {{/if}}
     </form>
 </div>

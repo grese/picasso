@@ -16,9 +16,9 @@ export default Em.Route.extend({
         return record;
     },
 
-    _doSave: function(record) {
-        if (record) {
-            record.save().then(() => {
+    save() {
+        if (this.get('currentModel.hasDirtyAttributes')) {
+            this.get('currentModel').save().then(() => {
                 this.get('notify').success('Your changes have been saved.');
             }).catch(() => {
                 this.get('notify').alert('An error occurred while saving your changes!');
@@ -26,15 +26,16 @@ export default Em.Route.extend({
         }
     },
 
+    reset() {
+        this.get('currentModel').rollbackAttributes();
+    },
+
     actions: {
-        reset: function(record) {
-            record.rollbackAttributes();
+        doReset: function() {
+            this.reset();
         },
-        create: function(record) {
-            this._doSave(record);
-        },
-        save: function(record) {
-            this._doSave(record);
+        doSave: function() {
+            this.save();
         }
     }
 });
