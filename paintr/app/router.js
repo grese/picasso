@@ -6,7 +6,6 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function () {
-
     this.route('index', {path: '/'});
     this.route('login');
 
@@ -14,10 +13,11 @@ Router.map(function () {
         this.route('all', {path: '/'});
         this.route('view', {path: '/:image_id'});
     });
+    this.route('image.new', {path: '/paint'});
 
     this.route('user', function() {
-      this.route('index', {path: '/:user_id'});
-      this.route('edit', {path: '/:user_id/edit'});
+        this.route('index', {path: '/:user_id'});
+        this.route('edit', {path: '/:user_id/edit'});
     });
     this.route('user.new', {path: '/signup'});
 });

@@ -1,6 +1,7 @@
 import Em from 'ember';
+import AuthenticatedRoute from 'paintr/routes/authenticated';
 
-export default Em.Route.extend({
+export default AuthenticatedRoute.extend({
     notify: Em.inject.service(),
 
     model: function(params) {
