@@ -6,7 +6,7 @@ import { inlineValidator } from 'ember-validator';
 var UserModel = DS.Model.extend({
     email: DS.attr('string'),
     username: DS.attr('string'),
-    images: DS.hasMany('image', {async: true}),
+    images: DS.hasMany('image'),
     password: DS.attr('string', {defaultValue: null}),
     confirmation: DS.attr('boolean', {defaultValue: false})
 });

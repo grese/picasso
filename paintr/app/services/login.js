@@ -10,6 +10,9 @@ export default AjaxService.extend(ConstantsMixin, {
     init() {
         this._super(...arguments);
         this._readLocalStorage();
+        if (this.get('userId') && !this.get('user')) {
+            this.findUser(this.get('userId'));
+        }
     },
     loggedIn: Em.computed('apiKey', 'userId', {
         get() {
