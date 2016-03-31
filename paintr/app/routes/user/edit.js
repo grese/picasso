@@ -1,9 +1,8 @@
 import Em from 'ember';
 
 export default Em.Route.extend({
-    beforeModel: function() {
-        this.controllerFor('user/edit').set('isNewUser', false);
-    },
+    notify: Em.inject.service(),
+
     model: function(params) {
         var record;
         params = params || {};
@@ -20,9 +19,9 @@ export default Em.Route.extend({
     _doSave: function(record) {
         if (record) {
             record.save().then(() => {
-                this.get('controller.notify').success('Your changes have been saved.');
+                this.get('notify').success('Your changes have been saved.');
             }).catch(() => {
-                this.get('controller.notify').alert('An error occurred while saving your changes!');
+                this.get('notify').alert('An error occurred while saving your changes!');
             });
         }
     },

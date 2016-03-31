@@ -1,7 +1,7 @@
 
 <div class='user-edit'>
-    {{#if isNewUser}}
-        <h2>Create Account</h2>
+    {{#if model.isNew}}
+        <h2>Sign Up</h2>
     {{else}}
         <h2>Edit Account</h2>
     {{/if}}
@@ -22,14 +22,14 @@
         </div>
         <div class="form-group">
             <label for="passwordconf-field">Confirm Password:</label>
-            {{input type="password" id="passwordconf-field" class="form-control" value=passwordConf}}
+            {{input type="password" id="passwordconf-field" class="form-control" value=model.passwordConfirmation}}
         </div>
 
-        <button {{action 'reset' model}} type="button" class="btn btn-default">Reset</button>
-        {{#if isNewUser}}
-            <button {{action 'create' model}} type="button" class="btn btn-primary">Create Account</button>
+        <button {{action 'reset' model}} type="button" class="btn btn-default pull-left">Reset</button>
+        {{#if model.isNew}}
+            <button {{action 'create' model}} type="button" class="btn btn-primary pull-right">Create Account</button>
         {{else}}
-            <button {{action 'save' model}} type="button" class="btn btn-primary">Save Changes</button>
+            <button {{action 'save' model}} type="button" class="btn btn-primary pull-right">Save Changes</button>
         {{/if}}
     </form>
 </div>
