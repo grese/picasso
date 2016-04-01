@@ -28,9 +28,9 @@ export default Em.Route.extend(EmValidator, {
                 this.get('currentModel.password')
             ).then(() => {
                 this.transitionTo('image.new');
+                this.set('controller.isLoggingIn', false);
             }).catch(() => {
                 this.get('notify').alert('Your username/email or password was incorrect.');
-            }).finally(() => {
                 this.set('controller.isLoggingIn', false);
             });
         }

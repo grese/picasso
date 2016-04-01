@@ -24,9 +24,9 @@ export default AuthenticatedRoute.extend({
 
             this.get('currentModel').save().then(() => {
                 this.userSaveSuccess(password);
+                this.set('controller.isSaving', false);
             }).catch(() => {
                 this.userSaveFailure();
-            }).finally(() => {
                 this.set('controller.isSaving', false);
             });
         }
