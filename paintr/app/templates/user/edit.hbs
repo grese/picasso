@@ -34,10 +34,11 @@
         {{/if}}
 
         <button {{action 'doReset' model}} type="button" class="btn btn-default pull-left">Reset</button>
+
         {{#if model.isNew}}
-            <button type="submit" class="btn btn-primary pull-right">Create Account</button>
+            {{spinner-button buttonText='Create Account' class='btn btn-primary pull-right' type='submit' spinning=isSaving}}
         {{else}}
-            <button type="submit" class="btn btn-primary pull-right">Save Changes</button>
+            {{spinner-button buttonText='Save Changes' class='btn btn-primary pull-right' type='submit' spinning=isSaving}}
         {{/if}}
     </form>
 </div>

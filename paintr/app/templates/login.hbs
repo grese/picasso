@@ -14,7 +14,8 @@
                     <span class="error">{{model.passwordValidatorResult.error}}</span>
                     {{input type="password" id="password-login-field" class="form-control" value=model.password}}
                 </div>
-                <button type="submit" class="btn btn-primary">Go</button>
+
+                {{spinner-button buttonText='Go' class="btn btn-primary" type='submit'}}
             </form>
         </div>
 

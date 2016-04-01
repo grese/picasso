@@ -1,0 +1,12 @@
+<span class="spinner-button-inner">
+    <span class="spinner-button-text">
+        {{#if buttonText}}
+            {{buttonText}}
+        {{else}}
+            {{yield}}
+        {{/if}}
+    </span>
+    {{#if spinning}}
+        {{spinner}}
+    {{/if}}
+</span>

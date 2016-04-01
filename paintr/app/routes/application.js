@@ -6,7 +6,7 @@ export default Em.Route.extend({
     actions: {
         logout() {
             this.get('login').logout();
-            this.transitionTo('login');
+            window.location = '/login';
         }
     }
 });

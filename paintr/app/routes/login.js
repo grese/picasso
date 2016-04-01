@@ -22,13 +22,16 @@ export default Em.Route.extend(EmValidator, {
 
     validateAndLogin: function() {
         if (this.get('currentModel').get('validatorResultIsValid')) {
+
             this.get('login').login(
                 this.get('currentModel.loginName'),
                 this.get('currentModel.password')
             ).then(() => {
-                this.transitionTo('/');
+                this.transitionTo('image.new');
             }).catch(() => {
                 this.get('notify').alert('Your username/email or password was incorrect.');
+            }).finally(() => {
+                this.set('controller.isLoggingIn', false);
             });
         }
     },

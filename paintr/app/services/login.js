@@ -13,7 +13,7 @@ export default AjaxService.extend(ConstantsMixin, {
         this._super(...arguments);
         this._readLocalStorage();
         if (this.get('userId') && !this.get('user')) {
-            this.findUser(this.get('userId'));
+            this._findUser(this.get('userId'));
         }
     },
     loggedIn: Em.computed('apiKey', 'userId', {
@@ -47,7 +47,7 @@ export default AjaxService.extend(ConstantsMixin, {
                 this.set('userId', result.userId || null);
 
                 if (this.get('apiKey') && this.get('userId')) {
-                    this.findUser(this.get('userId'));
+                    this._findUser(this.get('userId'));
                     this._updateLocalStorage();
                     resolve(this.get('userId'));
                 } else {
@@ -68,7 +68,7 @@ export default AjaxService.extend(ConstantsMixin, {
         });
     },
 
-    findUser(userId) {
+    _findUser(userId) {
         this.get('store').findRecord('user', userId).then((user) => {
             this.set('user', user);
         });
