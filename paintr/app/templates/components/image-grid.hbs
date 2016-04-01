@@ -1,7 +1,7 @@
 <div class="image-grid-container">
     <div class="row">
         {{#each model as |image|}}
-            <div class="col-md-2 col-sm-3 col-xs-4">
+            <div class="col-md-4 col-sm-6 col-xs-12">
                 {{#link-to 'image.view' image.id class="image-grid-item"}}
                     <img clas="image-grid-item-thumb" src="{{image.getSrc}}" width="100%" />
 
